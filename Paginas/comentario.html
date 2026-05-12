@@ -1,13 +1,28 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Cadastro de Comentário</title>
+    <link rel = "stylesheet" href = "../styles.css">
+    <script src = "../script.js"></script>
+</head>
+<body>
 <form>
-    <input type = "text" placeholder = "Usuário">
-    <input type = "text" placeholder = "Tarefa">
-    <input type = "text" placeholder = "Comentário">
-    <input type = "date">
-    <select>
+    <input type = "text" id = "usuario" placeholder = "Usuário">
+    <input type = "text" id = "tarefa" placeholder = "Tarefa">
+    <input type = "text" id = "comentario" placeholder = "Comentário">
+    <input type = "date" id = "data">
+    <select id = "visibilidade">
         <option>Visível</option>
         <option>Oculto</option>
     </select>
-    <button>Cadastrar</button>
+    <input type = "button" onclick = "cadastrarComentario()" value = "Cadastrar">
+    <input type = "reset"  value = "Limpar">
 </form>
 
+<div id = "mensagem-retorno"></div>
+
 <a href = "../index.html">Voltar</a>
+</body>
+</html>

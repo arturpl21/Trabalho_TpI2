@@ -1,10 +1,25 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Cadastro de Projeto</title>
+    <link rel = "stylesheet" href = "../styles.css">
+    <script src = "../script.js"></script>
+</head>
+<body>
 <form>
-    <input type = "text" placeholder = "Nome">
-    <input type = "text" placeholder = "Descrição">
-    <input type = "date">
-    <input type = "date">
-    <input type = "text" placeholder = "Responsável">
-    <button>Cadastrar</button>
+    <input type = "text" id = "nome" placeholder = "Nome">
+    <input type = "text" id = "descricao" placeholder = "Descrição">
+    <input type = "date" id = "data_inicio">
+    <input type = "date" id = "data_fim">
+    <input type = "text" id = "responsavel" placeholder = "Responsável">
+    <input type = "button" onclick = "cadastrarProjeto()" value = "Cadastrar">
+    <input type = "reset"  value = "Limpar">
 </form>
 
+<div id = "mensagem-retorno"></div>
+
 <a href = "../index.html">Voltar</a>
+</body>
+</html>

@@ -1,11 +1,25 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel = "stylesheet" href = "../styles.css">
+    <script src = "../script.js"></script>
+</head>
+<body>
 <form onsubmit = "return validarUsuario()">
-    <input type = "text" placeholder = "Nome" required>
-    <input type = "email" placeholder = "Email" required>
+    <input type = "text" id = "nome" placeholder = "Nome" required>
+    <input type = "email" id = "email" placeholder = "Email" required>
     <input type = "password" id = "senha" placeholder = "Senha">
-    <input type = "password" placeholder = "Confirmar Senha">
+    <input type = "password" id = "senha_confirmacao" placeholder = "Confirmar Senha">
     <input type = "number" id = "idade" placeholder = "Idade">
-    <button type = "submit">Cadastrar</button>
+    <input type = "button" onclick = "cadastrarUsuario()" value = "Cadastrar">
+    <input type = "reset" value = "Limpar">
 </form>
 
+<div id = "mensagem-retorno"></div>
+
 <a href = "../index.html">Voltar</a>
-<script src = "../script.js"></script>
+</body>
+</html>

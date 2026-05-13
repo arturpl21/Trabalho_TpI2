@@ -5,7 +5,6 @@
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <title>Cadastro de Tarefa</title>
     <link rel = "stylesheet" href = "../styles.css">
-    <script src = "../script.js"></script>
 </head>
 <body>
 <form onsubmit = "return validarData(this.data.value)">
@@ -27,6 +26,33 @@
 
 <div id = "mensagem-retorno"></div>
 
+<h2>Pesquisar Tarefas</h2>
+    
+<input type = "text" id = "campo-pesquisa" placeholder = "Digite para pesquisar...">
+<input type = "button" onclick = "pesquisarTarefa()" value = "Pesquisar">
+ 
+<div>
+    <table id = "resultado" border = "1" style = "margin-top: 10px; width: 300px;">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th>Prioridade</th>
+                <th>Status</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody id = "resultadobody"></tbody>
+    </table>
+</div>
+
 <a href = "../index.html">Voltar</a>
+
+<script src = "../script.js"></script>
+<script>
+    window.onload = function(){
+    pesquisarTarefa();
+    };
+</script>
 </body>
 </html>

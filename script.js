@@ -190,3 +190,201 @@ function cadastrarComentario(){
         exibirMensagem('Erro na requisição: ' + error, false);
     });
 }
+
+function limparTabela(idTab){
+    var tbody = document.getElementById(idTab);
+        while(tbody.firstChild){
+        tbody.removeChild(tbody.firstChild);
+        }
+}
+ 
+function pesquisarUsuario(){
+    var campoPesquisa = document.getElementById('campo-pesquisa');
+    var search = campoPesquisa ? campoPesquisa.value : '';
+ 
+    var url = '../phps/pesquisa_usuario.php?search=' + encodeURIComponent(search);
+ 
+    fetch(url)
+    .then(function(response){return response.json();})
+    .then(function(dataJson){
+        console.info(dataJson);
+        if(dataJson){
+        limparTabela('resultadobody');
+ 
+        var resultado = dataJson.data;
+ 
+            for(var element of resultado){
+            var tr  = document.createElement('tr');
+            var cod = document.createElement('td');
+            var nom = document.createElement('td');
+            var sob = document.createElement('td');
+ 
+            cod.appendChild(document.createTextNode(element.cod));
+            nom.appendChild(document.createTextNode(element.nome));
+            sob.appendChild(document.createTextNode(element.sobrenome));
+ 
+            tr.appendChild(cod);
+            tr.appendChild(nom);
+            tr.appendChild(sob);
+ 
+            document.getElementById('resultadobody').appendChild(tr);
+            }
+        }
+    })
+    .catch(function(error){
+        alert('Erro na pesquisa: ' + error);
+    });
+}
+ 
+function pesquisarCategoria(){
+    var campoPesquisa = document.getElementById('campo-pesquisa');
+    var search = campoPesquisa ? campoPesquisa.value : '';
+ 
+    fetch('../phps/pesquisa_categoria.php?search=' + encodeURIComponent(search))
+    .then(function(response){return response.json();})
+    .then(function(dataJson){
+        if(dataJson){
+        limparTabela('resultadobody');
+        
+            for(var element of dataJson.data){
+            var tr = document.createElement('tr');
+            var cod = document.createElement('td');
+            var nome = document.createElement('td');
+            var tipo = document.createElement('td');
+            var status = document.createElement('td');
+ 
+            cod.appendChild(document.createTextNode(element.cod));
+            nome.appendChild(document.createTextNode(element.nome));
+            tipo.appendChild(document.createTextNode(element.tipo));
+            status.appendChild(document.createTextNode(element.status));
+ 
+            tr.appendChild(cod);
+            tr.appendChild(nome);
+            tr.appendChild(tipo);
+            tr.appendChild(status);
+ 
+            document.getElementById('resultadobody').appendChild(tr);
+            }
+        }
+    })
+    .catch(function(error){
+        alert('Erro na pesquisa: ' + error);
+    });
+}
+ 
+function pesquisarProjeto(){
+    var campoPesquisa = document.getElementById('campo-pesquisa');
+    var search = campoPesquisa ? campoPesquisa.value : '';
+ 
+    fetch('../phps/pesquisa_projeto.php?search=' + encodeURIComponent(search))
+    .then(function(response){return response.json();})
+    .then(function(dataJson){
+        if(dataJson){
+        limparTabela('resultadobody');
+            for(var element of dataJson.data){
+            var tr = document.createElement('tr');
+            var cod = document.createElement('td');
+            var nome = document.createElement('td');
+            var responsavel = document.createElement('td');
+            var dataInicio = document.createElement('td');
+            var dataFim  = document.createElement('td');
+ 
+            cod.appendChild(document.createTextNode(element.cod));
+            nome.appendChild(document.createTextNode(element.nome));
+            responsavel.appendChild(document.createTextNode(element.responsavel));
+            dataInicio.appendChild(document.createTextNode(element.data_inicio));
+            dataFim.appendChild(document.createTextNode(element.data_fim));
+ 
+            tr.appendChild(cod);
+            tr.appendChild(nome);
+            tr.appendChild(responsavel);
+            tr.appendChild(dataInicio);
+            tr.appendChild(dataFim);
+ 
+            document.getElementById('resultadobody').appendChild(tr);
+            }
+        }
+    })
+    .catch(function(error){
+        alert('Erro na pesquisa: ' + error);
+    });
+}
+ 
+function pesquisarTarefa(){
+    var campoPesquisa = document.getElementById('campo-pesquisa');
+    var search = campoPesquisa ? campoPesquisa.value : '';
+ 
+    fetch('../phps/pesquisa_tarefa.php?search=' + encodeURIComponent(search))
+    .then(function(response){return response.json();})
+    .then(function(dataJson){
+        if(dataJson){
+        limparTabela('resultadobody');
+            for(var element of dataJson.data){
+            var tr = document.createElement('tr');
+            var cod = document.createElement('td');
+            var titulo = document.createElement('td');
+            var prioridade = document.createElement('td');
+            var status = document.createElement('td');
+            var data = document.createElement('td');
+ 
+            cod.appendChild(document.createTextNode(element.cod));
+            titulo.appendChild(document.createTextNode(element.titulo));
+            prioridade.appendChild(document.createTextNode(element.prioridade));
+            status.appendChild(document.createTextNode(element.status));
+            data.appendChild(document.createTextNode(element.data));
+ 
+            tr.appendChild(cod);
+            tr.appendChild(titulo);
+            tr.appendChild(prioridade);
+            tr.appendChild(status);
+            tr.appendChild(data);
+ 
+            document.getElementById('resultadobody').appendChild(tr);
+            }
+        }
+    })
+    .catch(function(error){
+        alert('Erro na pesquisa: ' + error);
+    });
+}
+ 
+function pesquisarComentario(){
+    var campoPesquisa = document.getElementById('campo-pesquisa');
+    var search = campoPesquisa ? campoPesquisa.value : '';
+ 
+    fetch('../phps/pesquisa_comentario.php?search=' + encodeURIComponent(search))
+    .then(function(response){ return response.json();})
+    .then(function(dataJson){
+        if(dataJson){
+        limparTabela('resultadobody');
+            for(var element of dataJson.data){
+            var tr = document.createElement('tr');
+            var cod = document.createElement('td');
+            var usuario = document.createElement('td');
+            var tarefa = document.createElement('td');
+            var comentario = document.createElement('td');
+            var data = document.createElement('td');
+            var visibilidade = document.createElement('td');
+ 
+            cod.appendChild(document.createTextNode(element.cod));
+            usuario.appendChild(document.createTextNode(element.usuario));
+            tarefa.appendChild(document.createTextNode(element.tarefa));
+            comentario.appendChild(document.createTextNode(element.comentario));
+            data.appendChild(document.createTextNode(element.data));
+            visibilidade.appendChild(document.createTextNode(element.visibilidade));
+ 
+            tr.appendChild(cod);
+            tr.appendChild(usuario);
+            tr.appendChild(tarefa);
+            tr.appendChild(comentario);
+            tr.appendChild(data);
+            tr.appendChild(visibilidade);
+ 
+            document.getElementById('resultadobody').appendChild(tr);
+            }
+        }
+    })
+    .catch(function(error){
+        alert('Erro na pesquisa: ' + error);
+    });
+}

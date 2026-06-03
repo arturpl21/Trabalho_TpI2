@@ -8,7 +8,6 @@
 </head>
 <body>
 <form>
-    <input type = "hidden" id = "cod_edicao">
     <input type = "text" id = "nome" placeholder = "Nome" required>
     <input type = "text" id = "descricao" placeholder = "Descrição">
     <input type = "color" id = "cor">
@@ -17,10 +16,8 @@
         <option>Ativo</option>
         <option>Inativo</option>
     </select>
-    <input type = "button" id = "btn-cadastrar" onclick = "cadastrarCategoria()" value = "Cadastrar">
-    <input type = "button" id = "btn-atualizar" onclick = "atualizarCategoria()" value = "Atualizar"
-    style = "display:none">
-    <input type = "reset" value = "Limpar">
+    <input type = "button" onclick = "cadastrarCategoria()" value = "Cadastrar">
+    <input type = "reset"  value = "Limpar">
 </form>
 
 <div id = "mensagem-retorno"></div>
@@ -38,7 +35,6 @@
                 <th>Nome</th>
                 <th>Tipo</th>
                 <th>Status</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody id = "resultadobody"></tbody>

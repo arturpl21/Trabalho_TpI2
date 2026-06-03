@@ -7,8 +7,7 @@
     <link rel = "stylesheet" href = "../styles.css">
 </head>
 <body>
-<form>
-    <input type = "hidden" id = "cod_edicao">
+<form onsubmit = "return validarData(this.data.value)">
     <input type = "text" id = "titulo" placeholder = "Título">
     <input type = "text" id = "descricao" placeholder = "Descrição">
     <input type = "date" id = "data" name = "data">
@@ -21,9 +20,7 @@
         <option>Pendente</option>
         <option>Concluído</option>
     </select>
-    <input type = "button" id = "btn-cadastrar" onclick = "cadastrarTarefa()" value = "Cadastrar">
-    <input type = "button" id = "btn-atualizar" onclick = "atualizarTarefa()" value = "Atualizar"
-    style = "display:none">
+    <input type = "button" onclick = "cadastrarTarefa()" value = "Cadastrar">
     <input type = "reset"  value = "Limpar">
 </form>
 
@@ -43,7 +40,6 @@
                 <th>Prioridade</th>
                 <th>Status</th>
                 <th>Data</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody id = "resultadobody"></tbody>

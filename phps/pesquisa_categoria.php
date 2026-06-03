@@ -1,8 +1,19 @@
 <?php
-require './dbconnect.php';
-$search = isset($_GET['search']) ? $_GET['search'] : '';
-$resultado = $search
-    ? findBySearch('categorias', 'nome', $search)
-    : findAll('categorias');
-echo '{"data": ' . json_encode($resultado) . '}';
+if(isset($_GET['search']) && strpos($_GET['search'], 'produto') !== false){
+    echo '{
+        data": [
+        {"cod": 1, "nome": "Tecnologia", "tipo": "Área", "status": "Ativo"},
+        {"cod": 2, "nome": "Marketing", "tipo": "Área", "status": "Ativo"},
+        {"cod": 3, "nome": "Financeiro", "tipo": "Setor", "status": "Inativo"}
+        ]
+    }';
+}
+else{
+    echo '{
+        "data": [
+        {"cod": 10, "nome": "Suporte", "tipo": "Área", "status": "Ativo"},
+        {"cod": 12, "nome": "Logística", "tipo": "Setor", "status": "Inativo"}
+        ]
+    }';
+}
 ?>

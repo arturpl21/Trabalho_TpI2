@@ -8,15 +8,12 @@
 </head>
 <body>
 <form>
-    <input type = "hidden" id = "cod_edicao">
     <input type = "text" id = "nome" placeholder = "Nome">
     <input type = "text" id = "descricao" placeholder = "Descrição">
     <input type = "date" id = "data_inicio">
     <input type = "date" id = "data_fim">
     <input type = "text" id = "responsavel" placeholder = "Responsável">
-    <input type = "button" id = "btn-cadastrar" onclick = "cadastrarProjeto()" value = "Cadastrar">
-    <input type = "button" id = "btn-atualizar" onclick = "atualizarProjeto()" value = "Atualizar"
-    style = "display:none">
+    <input type = "button" onclick = "cadastrarProjeto()" value = "Cadastrar">
     <input type = "reset"  value = "Limpar">
 </form>
 
@@ -36,7 +33,6 @@
                 <th>Responsável</th>
                 <th>Início</th>
                 <th>Fim</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody id = "resultadobody"></tbody>

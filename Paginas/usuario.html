@@ -9,16 +9,13 @@
 <body>
  <h1>Cadastro de Usuário</h1>
 
-<form>
-    <input type = "hidden" id = "cod_edicao">
+<form onsubmit = "return validarUsuario()">
     <input type = "text" id = "nome" placeholder = "Nome" required>
     <input type = "email" id = "email" placeholder = "Email" required>
     <input type = "password" id = "senha" placeholder = "Senha">
     <input type = "password" id = "senha_confirmacao" placeholder = "Confirmar Senha">
     <input type = "number" id = "idade" placeholder = "Idade">
-    <input type = "button" id = "btn-cadastrar" onclick = "cadastrarUsuario()" value = "Cadastrar">
-    <input type = "button" id = "btn-atualizar" onclick = "atualizarUsuario()" value = "Atualizar"
-    style = "display:none">
+    <input type = "button" onclick = "cadastrarUsuario()" value = "Cadastrar">
     <input type = "reset" value = "Limpar">
 </form>
 
@@ -36,7 +33,6 @@
                 <th>Código</th>
                 <th>Nome</th>
                 <th>Sobrenome</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody id = "resultadobody">

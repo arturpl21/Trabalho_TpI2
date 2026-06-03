@@ -8,4 +8,3 @@
 -No arquivo script.js, tivemos a adição:
 	.da função limparTabela(), remove todas as linhas do tbody antes
 	.de uma função pesquisarX() para cada formulário, que interagem com os novos arquivos php
-"# Trabalho_TpI2_2" 

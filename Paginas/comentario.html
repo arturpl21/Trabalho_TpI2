@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Cadastro de Comentário</title>
+    <link rel = "stylesheet" href = "../styles.css">
+</head>
+<body>
+<form>
+    <input type = "hidden" id = "cod_edicao">
+    <input type = "text" id = "usuario" placeholder = "Usuário">
+    <input type = "text" id = "tarefa" placeholder = "Tarefa">
+    <input type = "text" id = "comentario" placeholder = "Comentário">
+    <input type = "date" id = "data">
+    <select id = "visibilidade">
+        <option>Visível</option>
+        <option>Oculto</option>
+    </select>
+    <input type = "button" id = "btn-cadastrar" onclick = "cadastrarComentario()" value = "Cadastrar">
+    <input type = "button" id = "btn-atualizar" onclick = "atualizarComentario()" value = "Atualizar"
+    style = "display:none">
+    <input type = "reset"  value = "Limpar">
+</form>
+
+ <h2>Pesquisar Comentários</h2>
+    
+<input type = "text" id = "campo-pesquisa" placeholder = "Digite para pesquisar...">
+<input type = "button" onclick = "pesquisarComentario()" value = "Pesquisar">
+ 
+<div>
+    <table id = "resultado" border = "1" style = "margin-top: 10px; width: 300px;">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Usuário</th>
+                <th>Tarefa</th>
+                <th>Comentário</th>
+                <th>Data</th>
+                <th>Visibilidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id = "resultadobody"></tbody>
+    </table>
+</div>
+
+<div id = "mensagem-retorno"></div>
+
+<script src = "../script.js"></script>
+<script>
+    window.onload = function(){
+    pesquisarComentario();
+    };
+</script>
+
+<a href = "../index.html">Voltar</a>
+</body>
+</html>

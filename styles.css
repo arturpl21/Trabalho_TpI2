@@ -1,0 +1,19 @@
+body{
+font-family: Arial;
+}
+
+form{
+margin: 20px auto;
+width: 300px;
+}
+
+input, select{
+display: block;
+margin: 10px auto;
+padding: 8px;
+}
+
+a{
+display: block;
+margin: 10px;
+}
